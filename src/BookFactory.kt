@@ -18,3 +18,13 @@ class CurrencyFactory {
         }
     }
 }
+//val noCurrencyCode = "No Currency Code Available"
+//
+//val greeceCode = CurrencyFactory().currencyForCountry(Country.Greece)?.code ?: noCurrencyCode
+//println("Greece currency: $greeceCode")
+//
+//val usCode = CurrencyFactory().currencyForCountry(Country.UnitedStates)?.code ?: noCurrencyCode
+//println("US currency: $usCode")
+//
+//val ukCode = CurrencyFactory().currencyForCountry(Country.UK)?.code ?: noCurrencyCode
+//println("UK currency: $ukCode")

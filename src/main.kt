@@ -12,8 +12,13 @@ fun main(args : Array<String>) {
     val ukCode = CurrencyFactory().currencyForCountry(Country.Spain)?.code ?: noCurrencyCode
     println("UK currency: $ukCode")
 
-//    val w = Wydawnictwo.getWydawnictwo("Adam Mickiewicz")
-    /* W zależności od autora wybiera się odpowiednie wydawnictwo. Wpisać kilka wariantów dla różnych nazwisk. Tu powstanie wydawnictwo poematów */
+
+    val w = Print().getPrint("Adam Mickiewicz")
+    println(w)
+    if (w != null) {
+        println(w.genre)
+    }
+//    /* W zależności od autora wybiera się odpowiednie wydawnictwo. Wpisać kilka wariantów dla różnych nazwisk. Tu powstanie wydawnictwo poematów */
 //    val k = w.createBook("Dziady", 130)
     /* Tworzy książkę klasy Poemat z podanym tytułem i liczbą stron.  Autor przekazany będzie z wydawnictwa */
 }
