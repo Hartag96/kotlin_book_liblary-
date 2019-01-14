@@ -1,16 +1,16 @@
 class Book() : Text{
     var author: String = ""
     var title: String = "Zeszyt"
-    var pages: Number? = 64
+    var pages: Int = 64
 
-    constructor(author: String, title: String, pages: Number) : this() {
+    constructor(author: String, title: String, pages: Int) : this() {
         this.author = author
         this.title = title
         this.pages = pages
     }
 
     override fun toString(): String {
-        return "| $author | $title | $pages |"
+        return "|$author \t | $title | $pages |"
     }
 }
 

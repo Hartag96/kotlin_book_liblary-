@@ -1,13 +1,22 @@
-import java.io.File
-
 object Liblary { // Singleton
-    val table = Table();
+    val table = Table(3);
     val bookstand = Bookstand();
 }
 
 fun main(args : Array<String>) {
-//    println(Liblary.table);
-//    println(Liblary.bookstand);
+
+
+    try {
+//        Liblary.table.getBook()
+        Liblary.table.putBook(Book("Juliusz Słowacki", "Kordian", 180))
+        Liblary.table.putBook(Book("Juliusz Słowacki", "Kordian", 180))
+        Liblary.table.putBook(Book("Juliusz Słowacki", "Kordian", 180))
+//        Liblary.table.putBook(Book("Juliusz Słowacki", "Kordian", 180))
+    }
+    catch (e: TableException) {
+        println(e)
+    }
+
 
     val rb = BookstandBuilder()
     rb.add(Shelf(10000))
@@ -23,24 +32,40 @@ fun main(args : Array<String>) {
         println(e)
     }
 
-// TODO
-//    val p = Shelf(6000)
-//    try {
-//        // p.wezKsiazke()  // PolkaException: Półka jest pusta!
-//        p.putBook(Obwoluta(Book("Juliusz Słowacki", "Kordian", 180)))
-//        p.putBook(Book("Robin Cook", "Śpiączka", 300))
+    val p = Shelf(6000)
+    try {
+//        p.getBook()  // PolkaException: Półka jest pusta!
+        p.putBook(Book("Juliusz Słowacki", "Kordian", 180))
+        p.putBook(Book("Robin Cook", "Śpiączka", 3000))
+        p.putBook(4, Book("Jan Pawel II", "Modlitwa", 300))
 //        p.getBook(-1) //PolkaException: niedozwolony indeks książki
 //        p.getBook(3)  //PolkaException: Niedozwolony indeks książki (są tylko dwie)
-//        for(i in 0..6) // i == 4 --> PolkaException: Półka jest pełna!
-//        {
-//            val k = Book("Henryk Sienkiewicz", "Potop", 1200)
-//            p.putBook(k)
-//        }
+        for(i in 0..6) // i == 4 --> PolkaException: Półka jest pełna!
+        {
+            val k = Book("Henryk Sienkiewicz", "Potop", 1200)
+            p.putBook(k)
+        }
+    }
+    catch(pe: ShelfException) {
+        println(pe)
+    }
+    println(p)
+
+
+            // Testowanie porzadkowania regalu
+//    val s = Shelf(6000)
+//    try {
+//        s.putBook(Book("Juliusz Słowacki", "Kordian", 180))
+//        s.putBook(Book("Robin Cook", "Śpiączka", 3000))
+//        s.putBook(4, Book("Jan Pawel II", "Modlitwa", 300))
+//        s.putBook(6, Book("Juri Ofsienko", "Uran", 431))
+//        s.getBook(1)
 //    }
-//    catch(pe: PolkaException) {
-//
+//    catch(pe: ShelfException) {
+//        println(pe)
 //    }
-//    println(p)
-//
+//    print(s)
 }
+
+
 
